@@ -28,7 +28,7 @@ try {
         $boxLille->addMachineToBox(MachineFactory::createMachine('Nacelle')); // Exception: La box est pleine
 
     } catch (Exception $e) {
-        echo 'Erreur dans la box Lille: ' . $e->getMessage() . "\n";
+        echo $e->getMessage() . "\n\n";
     }
 
     try {
@@ -39,7 +39,7 @@ try {
         $boxLesquin->addMachineToBox(MachineFactory::createMachine('Rouleau compresseur')); // Nombre d'engin 5, ajout de l'observer, tous les types: oui
 
     } catch (Exception $e) {
-        echo 'Erreur dans la box Lille: ' . $e->getMessage() . "\n";
+        echo  $e->getMessage() . "\n\n";
     }
 
     $boxManager = new BoxManager();

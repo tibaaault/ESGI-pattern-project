@@ -3,17 +3,19 @@
 
 class Box
 {
-    private $name;
+    private $name; //nom de la box 
     private $machine = [];
-    private $capacite = 8;
+    private $capacite = 8; //place max
 
     private $observers = [];
 
-    public function __construct($name) {
+    public function __construct($name)
+    {
         $this->name = $name;
     }
 
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
@@ -28,7 +30,7 @@ class Box
             }
             $this->notifyObservers();
         } else {
-            throw new Exception("La box de " . $this->name . " est pleine");
+            throw new Exception("Erreur, la box de " . $this->name . " est pleine\n\n");
         }
     }
 
@@ -65,11 +67,13 @@ class Box
         }
     }
 
-    public function getMachineInBox() {
-        $types = array_map(function($machine) {
+    // Retourne les engins présent dans la box 
+    public function getMachineInBox()
+    {
+        $types = array_map(function ($machine) {
             return $machine->getType();
         }, $this->machine);
 
-        return array_unique($types);
+        return $types;
     }
 }
