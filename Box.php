@@ -3,7 +3,7 @@
 
 class Box
 {
-    private $name; //nom de la box 
+    private $name; 
     private $machine = [];
     private $capacite = 8; //place max
 
@@ -45,8 +45,8 @@ class Box
             return $machine->getType();
         }, $this->machine);
 
-        $required = ['Pelleteuse', 'Tractopelle', 'Nacelle', 'Bulldozer', 'Rouleau compresseur'];
-        foreach ($required as $type) {
+        $require = ['Pelleteuse', 'Tractopelle', 'Nacelle', 'Bulldozer', 'Rouleau compresseur'];
+        foreach ($require as $type) {
             if (!in_array($type, $types)) {
                 return false;
             }
