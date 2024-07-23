@@ -1,40 +1,40 @@
 <?php
-abstract class Engin {
+abstract class Machine {
     abstract public function getType();
 }
 
-class Pelleteuse extends Engin {
+class Pelleteuse extends Machine {
     public function getType() {
         return 'Pelleteuse';
     }
 }
 
-class Tractopelle extends Engin {
+class Tractopelle extends Machine {
     public function getType() {
         return 'Tractopelle';
     }
 }
 
-class Nacelle extends Engin {
+class Nacelle extends Machine {
     public function getType() {
         return 'Nacelle';
     }
 }
 
-class Bulldozer extends Engin {
+class Bulldozer extends Machine {
     public function getType() {
         return 'Bulldozer';
     }
 }
 
-class RouleauCompresseur extends Engin {
+class RouleauCompresseur extends Machine {
     public function getType() {
         return 'Rouleau compresseur';
     }
 }
 
-class EnginFactory {
-    public static function createEngin($type) {
+class MachineFactory {
+    public static function createMachine($type) {
         switch ($type) {
             case 'Pelleteuse':
                 return new Pelleteuse();
@@ -47,7 +47,7 @@ class EnginFactory {
             case 'Rouleau compresseur':
                 return new RouleauCompresseur();
             default:
-                throw new Exception("Type d'engin inconnu");
+                throw new Exception("Type d'Machine inconnu");
         }
     }
 }

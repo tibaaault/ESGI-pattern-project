@@ -4,7 +4,7 @@
 class Box
 {
     private $name;
-    private $engins = [];
+    private $machine = [];
     private $capacite = 8;
 
     private $observers = [];
@@ -17,11 +17,11 @@ class Box
         return $this->name;
     }
 
-    public function addEnginToBox(Engin $engin)
+    public function addMachineToBox(Machine $machine)
     {
-        if (count($this->engins) < $this->capacite) {
-            $this->engins[] = $engin;
-            if (count($this->engins) == 5) {
+        if (count($this->machine) < $this->capacite) {
+            $this->machine[] = $machine;
+            if (count($this->machine) == 5) {
                 $alert = new BoxAlert();
                 echo "Observateur 'BoxAlert' ajouté lors de l'ajout du 5ème engin.\n";
                 $this->addObserver($alert);
@@ -32,16 +32,16 @@ class Box
         }
     }
 
-    public function getEngins()
+    public function getMachine()
     {
-        return $this->engins;
+        return $this->machine;
     }
 
     public function boxHasAllTypes()
     {
-        $types = array_map(function ($engin) {
-            return $engin->getType();
-        }, $this->engins);
+        $types = array_map(function ($machine) {
+            return $machine->getType();
+        }, $this->machine);
 
         $required = ['Pelleteuse', 'Tractopelle', 'Nacelle', 'Bulldozer', 'Rouleau compresseur'];
         foreach ($required as $type) {
@@ -54,7 +54,6 @@ class Box
 
     public function addObserver(Observer $observer)
     {
-        //ajouter un observer à la liste des observateurs
         $this->observers[] = $observer;
     }
 
@@ -66,10 +65,10 @@ class Box
         }
     }
 
-    public function getEnginInBox() {
-        $types = array_map(function($engin) {
-            return $engin->getType();
-        }, $this->engins);
+    public function getMachineInBox() {
+        $types = array_map(function($machine) {
+            return $machine->getType();
+        }, $this->machine);
 
         return array_unique($types);
     }
