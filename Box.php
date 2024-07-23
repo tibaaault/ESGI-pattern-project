@@ -59,9 +59,9 @@ class Box
         $this->observers[] = $observer;
     }
 
+    //permet aux observateurs de réagir aux changements
     public function notifyObservers()
     {
-        //permet aux observateurs de réagir aux changements
         foreach ($this->observers as $observer) {
             $observer->update($this);
         }
