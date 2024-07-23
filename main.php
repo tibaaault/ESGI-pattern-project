@@ -8,7 +8,7 @@ try {
     // Creer une Box et ajout d'un observateur
     $boxLille = new Box('Lille');
     $boxLesquin = new Box('Lesquin');
-    $logger = new BoxLogger();
+    $logger = new BoxUpdate();
 
     $boxLille->addObserver($logger);
     $boxLesquin->addObserver($logger);
@@ -45,6 +45,7 @@ try {
     $boxManager = new BoxManager();
     $boxManager->addBox($boxLille);
     $boxManager->addBox($boxLesquin);
+
 
     foreach ($boxManager->getBoxes() as $box) {
         echo "La box " . $box->getName() . " contient tous les types d'engins : " . ($box->boxHasAllTypes() ? "Oui" : "Non") . "\n";

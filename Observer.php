@@ -5,13 +5,7 @@ interface Observer
 }
 
 
-interface Subject
-{
-    public function addObserver(Observer $observer);
-    public function notifyObservers();
-}
-
-class BoxLogger implements Observer
+class BoxUpdate implements Observer
 {
     public function update(Box $box)
     {
